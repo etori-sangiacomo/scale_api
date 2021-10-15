@@ -10,6 +10,6 @@ defmodule ScaleApiWeb.Router do
   # end
 
   scope "/" do
-    forward "/graphql", Absinthe.Plug, schema: ScaleGraphql.Schema, json_code: Jason
+    forward "/graphql", Absinthe.Plug, schema: ScaleApiGraphql.Schema, json_code: Jason
   end
 end
