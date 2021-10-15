@@ -1,0 +1,15 @@
+{
+  "skip_files": [
+    "test",
+    "lib/scale_api_web.ex",
+    "lib/scale_api_web/channels/user_socket.ex",
+    "lib/scale_api_web/views/error_helpers.ex",
+    "lib/scale_api/application.ex",
+    "lib/scale_api_web/telemetry.ex"
+  ],
+  "coverage_options": {
+      "treat_no_relevant_lines_as_covered": true,
+      "output_dir": "cover/",
+      "minimum_coverage": 95
+  }
+}

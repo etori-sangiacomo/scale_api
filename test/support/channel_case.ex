@@ -16,6 +16,7 @@ defmodule ScaleApiWeb.ChannelCase do
   """
 
   use ExUnit.CaseTemplate
+  alias Ecto.Adapters.SQL.Sandbox
 
   using do
     quote do
@@ -29,10 +30,10 @@ defmodule ScaleApiWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ScaleApi.Repo)
+    :ok = Sandbox.checkout(ScaleApi.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ScaleApi.Repo, {:shared, self()})
+      Sandbox.mode(ScaleApi.Repo, {:shared, self()})
     end
 
     :ok

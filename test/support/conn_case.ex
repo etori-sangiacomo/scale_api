@@ -16,6 +16,7 @@ defmodule ScaleApiWeb.ConnCase do
   """
 
   use ExUnit.CaseTemplate
+  alias Ecto.Adapters.SQL.Sandbox
 
   using do
     quote do
@@ -32,10 +33,10 @@ defmodule ScaleApiWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ScaleApi.Repo)
+    :ok = Sandbox.checkout(ScaleApi.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ScaleApi.Repo, {:shared, self()})
+      Sandbox.mode(ScaleApi.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
