@@ -21,10 +21,11 @@ defmodule ScaleApiGraphql.SchemaTest do
         "variables" => %{}
       })
 
-      assert json_response(conn, 200) == %{
-        "data" => %{
-          "createPicking" => "We received the payload, and we are going to create all orders!"
-        }
-      }
+    assert json_response(conn, 200) == %{
+             "data" => %{
+               "createPicking" =>
+                 "We received the payload, and we are going to create all orders!"
+             }
+           }
   end
 end
