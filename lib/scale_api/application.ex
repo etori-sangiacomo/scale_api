@@ -14,7 +14,8 @@ defmodule ScaleApi.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: ScaleApi.PubSub},
       # Start the Endpoint (http/https)
-      ScaleApiWeb.Endpoint
+      ScaleApiWeb.Endpoint,
+      {ScaleApi.Pickings.Workers.ConsumeProductsFromKafka, []}
       # Start a worker by calling: ScaleApi.Worker.start_link(arg)
       # {ScaleApi.Worker, arg}
     ]
